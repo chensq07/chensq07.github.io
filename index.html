@@ -1,59 +1,29 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>演示：jQuery掷骰子动画</title>
-<style type="text/css">
-.demo{width:760px; height:120px; margin:10px auto;}
-.wrap{width:90px; height:90px; margin:120px auto 30px auto; position:relative}
-.dice{width:90px; height:90px; background:url(http://www.codefans.net/jscss/demoimg/201404/dice.png) no-repeat; cursor:pointer;}
-.dice_1{background-position:-5px -4px}
-.dice_2{background-position:-5px -107px}
-.dice_3{background-position:-5px -212px}
-.dice_4{background-position:-5px -317px}
-.dice_5{background-position:-5px -427px}
-.dice_6{background-position:-5px -535px}
-.dice_t{background-position:-5px -651px}
-.dice_s{background-position:-5px -763px}
-.dice_e{background-position:-5px -876px}
-p#result{text-align:center; font-size:16px}
-p#result span{font-weight:bold; color:#f30; margin:6px}
-#dice_mask{width:90px; height:90px; background:#fff; opacity:0; position:absolute; top:0; left:0; z-index:999}
-</style>
-<script type="text/javascript" src="http://www.codefans.net/ajaxjs/jquery-1.9.1.min.js"></script>
-<script type="text/javascript">
-$(function(){
-	var dice = $("#dice");
-	dice.click(function(){
-		$(".wrap").append("<div id='dice_mask'></div>");//加遮罩
-		dice.attr("class","dice");//清除上次动画后的点数
-		dice.css('cursor','default');
-		var num = Math.floor(Math.random()*6+1);//产生随机数1-6
-		dice.animate({left: '+2px'},100,function(){
-			dice.addClass("dice_t");
-		}).delay(200).animate({top:'-2px'},100,function(){
-			dice.removeClass("dice_t").addClass("dice_s");
-		}).delay(200).animate({opacity: 'show'},600,function(){
-			dice.removeClass("dice_s").addClass("dice_e");
-		}).delay(100).animate({left:'-2px',top:'2px'},100,function(){
-			dice.removeClass("dice_e").addClass("dice_"+num);
-			$("#result").html("您掷得点数是<span>"+num+"</span>");
-			dice.css('cursor','pointer');
-			$("#dice_mask").remove();//移除遮罩
-		});
-	});
-});
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>扫码关注有惊喜！！！</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="msapplication-tap-highlight" content="no" />
+    <script type="text/javascript">
+      (function (doc, win) {var docEl = doc.documentElement, resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize', recalc = function () {var clientWidth = docEl.clientWidth; if (!clientWidth) return; if(clientWidth>=640){docEl.style.fontSize = '100px'; }else{docEl.style.fontSize = 100 * (clientWidth / 640) + 'px'; } }; if (!doc.addEventListener) return; win.addEventListener(resizeEvt, recalc, false); doc.addEventListener('DOMContentLoaded', recalc, false); })(document, window);
+    </script>
+    <link rel="shortcut icon" href="https://res.wx.qq.com/mpres/htmledition/images/favicon3a7b38.ico" type="image/x-icon" />
+    <style type="text/css">
+    	html,body{width: 100%;height: 100%;position: absolute;top: 0;left: 0;margin: 0;padding: 0;background: #f2f2f2;}
+    	.main{margin: 2rem auto .5rem;}
+    	.main>img{display:block; margin: 0 auto;}
+    	.tips{text-indent: 2em; font-size: .35rem;padding: 0 5%;}
+    </style>
 </head>
 <body>
-<div id="main">
-   <h2 class="top_title">jQuery掷骰子动画</h2>
-   <div class="demo">
-   		<div class="wrap">
-   			<div id="dice" class="dice dice_1"></div>
-        </div>
-        <p id="result">请直接点击上面的骰子！</p>
-   </div>
-</div>
+	<div class="main">
+		<img src="./qrcode.jpg"/ alt="关注公众号">
+		<p class="tips">扫码关注此公众号，回复“寻乐趣” 每天惊喜不断，等你来玩！！！</p>
+	</div>
 </body>
 </html>
